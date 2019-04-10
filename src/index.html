@@ -1,0 +1,220 @@
+<html>
+	<head>
+		<title>Blood Pool</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+		<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+		<link rel="stylesheet" href="css/bootstrap.css">
+		<link rel="stylesheet" href="css/bootstrap-theme.min.css">
+		<!--<script src="js/jquery.js"></script>-->
+        <script src="js/storeValue.js"></script>
+        <script src="js/web3.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+		<!--<script src="js/jquery-3.3.1.min.js"></script>-->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+     <script src="js/web3.min.js"></script>
+<script src="js/truffle-contract.js"></script>
+		<script type="text/javascript" >
+
+</script>
+		
+		</head>
+   
+   <style>
+   .hospital{
+  text-align:center;
+  display: block;
+  width: 100%;
+  height:200px;
+  border:1px solid black;
+  background-color:#FFA07A;
+  color: #8B0000;
+  padding: 14px 28px;
+  font-size: 30px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow:1px 1px 3px #696969;
+}
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+.imgcontainer {
+  text-align: center;
+  margin: 24px 0 12px 0;
+  position: relative;
+}
+.container {
+  padding: 16px;
+}
+
+span.psw {
+  float: right;
+  padding-top: 16px;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  padding-top: 60px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button (x) */
+.close {
+  position: absolute;
+  right: 25px;
+  top: 0;
+  color: #000;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: red;
+  cursor: pointer;
+}
+
+/* Add Zoom Animation */
+.animate {
+  -webkit-animation: animatezoom 0.6s;
+  animation: animatezoom 0.6s
+}
+
+@-webkit-keyframes animatezoom {
+  from {-webkit-transform: scale(0)} 
+  to {-webkit-transform: scale(1)}
+}
+  
+@keyframes animatezoom {
+  from {transform: scale(0)} 
+  to {transform: scale(1)}
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+  span.psw {
+     display: block;
+     float: none;
+  }
+  .cancelbtn {
+     width: 100%;
+  }
+}
+
+   </style>
+		
+   <body> 
+   
+	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+
+            <a class="navbar-brand" href="#">
+                  <img src="bld_donate.jpg" alt="logo" style="width:60px;">
+            </a>
+        <span class="navbar-text" style="font-size:25px; font-weight:bold;">  BLOOD POOL </span>
+  
+  <div class="collapse navbar-collapse justify-content-end" id="navbarCollapse">
+         <ul class="navbar-nav">
+		 <li class="nav-item">
+               <a class="nav-link" href="home.html">Home</a>
+           </li>
+           <li class="nav-item">
+               <a class="nav-link" href="why_donate.html">Why Donate Blood?</a>
+           </li>
+           <li class="nav-item">
+               <a class="nav-link" href="who_needs.html">Who Needs Blood?</a>
+           </li>
+           <li class="nav-item">
+               <a class="nav-link" href="#result">Contact Us</a>
+           </li>
+         </ul>
+         </div>
+  </nav>
+<br>
+
+<div class="row" style="padding:50px;padding-top:80px;">
+				<div class = "col-6 col-md-6 col-lg-6">
+                       <button class="hospital" onclick="document.getElementById('id01').style.display='block'" >HOSPITALS</button>
+    
+	            </div>
+			    <div class = "col-6 col-md-6 col-lg-6 ">
+                       <button class="hospital" onclick="document.getElementById('id02').style.display='block'">DONORS</button>
+                </div>
+</div>
+<div id="id01" class="modal">
+  
+  <form class="modal-content animate" action="/action_page.php">
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+    </div>
+
+    <div class="container">
+      <label for="uname"><b>Hospital Name</b></label>
+      <input type="text" placeholder="Enter HospitalName" name="hname" required>
+
+      <label for="psw"><b>Address</b></label>
+      <input type="text" placeholder="Enter Address" name="psw" required>
+
+      <label for="psw"><b>Contact number</b></label>
+      <input type="text" placeholder="Enter Contact number" name="psw" required>
+        
+      <button type="submit">Ok</button>
+	  </div>
+	  </form>
+	  </div>
+	  
+	  <script>
+var modal = document.getElementById('id01');
+var modal2 = document.getElementById('id02');
+
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }else if (event.target == modal2) {
+        modal.style.display = "none";
+    }
+}
+</script>
+
+<div id="id02" class="modal">
+  
+  <form class="modal-content animate" action="/action_page.php">
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
+    </div>
+
+    <div class="container">
+      <label for="uid"><b>Unique Id</b></label>
+      <input type="text" placeholder="Enter Unique Id" name="uid" required>
+       
+      <button type="submit">Ok</button>
+	  </div>
+	  </form>
+	  </div>
+	  
+</body>
+</html>
+	
+	
