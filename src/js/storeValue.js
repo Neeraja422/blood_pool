@@ -267,8 +267,22 @@ var web3;
     }
   ];
 
-       var connection = new  web3.eth.contract(abi, address);
+       var connection = new  web3.eth.contract(abi).at(address);
        console.log("connection : ", connection);
        console.log(address);
+      // var contract_c = connection.at(address);
+
+       $("#hosp").click(function() {
+         connection.enter_hospital(function (error, result) {
+            if (!error)
+                console.log(result);
+            else{
+                console.log("connection failed");
+                console.error(error);
+              }
+        });
+
+        
+});
 
 
