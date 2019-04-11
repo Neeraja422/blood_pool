@@ -1,7 +1,7 @@
+import 'https://requirejs.org/docs/release/2.3.5/minified/require.js';
 const Web3 = require('web3')
-
+var web3;
  if (typeof web3 !== 'undefined') {
-            console
             web3 = new Web3(web3.currentProvider);
         } else {
             // set the provider you want from Web3.providers
@@ -9,10 +9,10 @@ const Web3 = require('web3')
         }
 
         web3.eth.defaultAccount = web3.eth.accounts[0];
-        const address = '0xAb5827AdEff9409b4b181614F065586be6be1a72';
+        console.log(web3.eth.defaultAccount);
+        const address = '0xF044F316a5c05F32FA30805d869AF7E133079e3c';
 
-        const abi = [
-    {
+        const abi =[{
       "constant": true,
       "inputs": [
         {
@@ -211,15 +211,15 @@ const Web3 = require('web3')
       "outputs": [
         {
           "name": "",
-          "type": "string"
+          "type": "string[]"
         },
         {
           "name": "",
-          "type": "string"
+          "type": "string[]"
         },
         {
           "name": "",
-          "type": "uint256"
+          "type": "uint256[]"
         }
       ],
       "payable": false,
@@ -265,9 +265,10 @@ const Web3 = require('web3')
       "type": "function",
       "signature": "0x5f1ccf5d"
     }
-        ];
+  ];
 
-        var connection = web3.eth.Contract(abi,address);
-        console.log("connection : ", connection);
+       var connection = new  web3.eth.contract(abi, address);
+       console.log("connection : ", connection);
+       console.log(address);
 
 

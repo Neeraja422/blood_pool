@@ -2,7 +2,7 @@
   "name": "blood_pool",
   "version": "1.0.0",
   "description": "",
-  "main": "home.html",
+  "main": "index.html",
   "scripts": {
     "dev": "lite-server",
     "test": "echo \"Error: no test specified\" && exit 1"

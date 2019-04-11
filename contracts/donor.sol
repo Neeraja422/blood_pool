@@ -1,4 +1,7 @@
+
+
 pragma solidity ^0.5.0;
+pragma experimental ABIEncoderV2;
 
 contract donor{
     struct donor_detail{
@@ -43,10 +46,26 @@ contract donor{
         donor_detail storage donor_d = id_donor_detail[_unique_id];
         return (donor_d.name, donor_d.bloodg, donor_d.donated_to, donor_d.blood_qty, donor_d.unique_id, donor_d.contact);
     }
-    function get_donors() view public returns(string memory,string memory,uint){
-      
-       for(uint i=0;i<donor_details.length;i++)
-       return (donor_details[i].name, donor_details[i].bloodg, donor_details[i].contact);
+    function get_donors() view public returns(string[] memory,string[] memory,uint[] memory){
+
+       uint length = donor_details.length;
+    
+        string[] memory name = new string[](length);
+        string[] memory bloodg = new string[](length);
+        uint[] memory contact = new uint[](length);
+    
+    for (uint i = 0; i < donor_details.length; i++) {
+        donor_detail memory showDonor;
+        showDonor = donor_details[i];
+        
+        name[i] = showDonor.name;
+        bloodg[i] = showDonor.bloodg;
+        contact[i] = showDonor.contact;
+    }
+    return(name,bloodg,contact);
+       
+       
+       
     }
     function enter_hospital() onlyOwner view public returns(bool){
         if(verify_hospital[msg.sender]==true)
