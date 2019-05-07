@@ -1,6 +1,6 @@
 <html>
 	<head>
-		<title>Blood Pool</title>
+		<title>Add_Donor</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width,initial-scale=1">
 		<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
@@ -9,10 +9,12 @@
 		<!--<script src="js/jquery.js"></script>-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 		<!--<script src="js/jquery-3.3.1.min.js"></script>-->
-    
-      <script src="js/storeValue.js"></script>
-      <script src="js/web3.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
+		<script src="js/bootstrap.min.js"></script>
+	    <script src="js/bootstrap.js"></script>
+		<script type="text/javascript" >
+		</script>
 		
 		</head>
    
@@ -33,9 +35,9 @@
 	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
 
             <a class="navbar-brand" href="#">
-                  <img src="nitrr.gif" alt="logo" style="width:40px;">
+                  <img src="bld_donate.jpg" alt="logo" style="width:60px;">
             </a>
-        <span class="navbar-text">  BLOOD POOL </span>
+        <span class="navbar-text" style="font-size:25px; font-weight:bold;">  BLOOD POOL </span>
   
   <div class="collapse navbar-collapse justify-content-end" id="navbarCollapse">
          <ul class="navbar-nav">
@@ -43,10 +45,10 @@
                <a class="nav-link" href="home.html">Home</a>
            </li>
            <li class="nav-item">
-               <a class="nav-link" href="#vote">Why Donate Blood?</a>
+               <a class="nav-link" href="why_donate.html">Why Donate Blood?</a>
            </li>
            <li class="nav-item">
-               <a class="nav-link" href="#part">Who Needs Blood?</a>
+               <a class="nav-link" href="who_needs.html">Who Needs Blood?</a>
            </li>
            <li class="nav-item">
                <a class="nav-link" href="#result">Contact Us</a>
@@ -66,81 +68,8 @@
   Blood Quantity:<br>
   <input type="text" id="quantity" placeholder="Quantity"><br>
    Contact Number:<br>
-  <input type="number" id="number" placeholder="Quantity"><br>
+  <input type="number" id="number" placeholder="Contact.."><br>
   Date:<br>
   <input type="date" id="date"><br>
     <input type="submit" value="ADD">
-</form></div>
-</div>
-</body>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/bootstrap.js"></script>
-    <script src="js/web3.min.js"></script>
-    <script type="text/javascript" >
-      //Initialize web3
-      if(typeof web3 !== 'undefined'){
-        web3 = new Web3(web3.currentProvider);
-      } else{
-        web3 = new Web3(new Web3.providers.HttpProvider('http://localhost:8545'));
-      }
-      //set Account 
-      web3.eth.defaultAccount = web3.eth.accounts[0];
-      //set contract Abi
-      var contractAbi=[{
-    "constant": false,
-    "inputs": [
-      {
-        "name": "_name",
-        "type": "string"
-      },
-      {
-        "name": "_bloodg",
-        "type": "string"
-      },
-      {
-        "name": "_blood_qty",
-        "type": "uint256"
-      },
-      {
-        "name": "_contact",
-        "type": "uint256"
-      }
-    ],
-    "name": "submit",
-    "outputs": [],
-    "payable": false,
-    "stateMutability": "nonpayable",
-    "type": "function"  }, {
-    "constant": true,
-    "inputs": [],
-    "name": "get_details",
-    "outputs": [
-      {
-        "name": "",
-        "type": "string"
-      },
-      {
-        "name": "",
-        "type": "string"
-      },
-      {
-        "name": "",
-        "type": "uint256"
-      },
-      {
-        "name": "",
-        "type": "bytes32"
-      }
-    ],
-    "payable": false,
-    "stateMutability": "view",
-    "type": "function"}];
-      // set contract Address
-      var contractAddress = 0xe21fd1222db431693b05fd83fb1de5386ace1de5;
-      // set the Contract
-      var contract=web3.eth.contract(contractAbi).at(contractAddress);
-    </script>
-</html>
+</form>

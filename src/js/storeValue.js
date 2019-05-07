@@ -1,4 +1,5 @@
 import 'https://requirejs.org/docs/release/2.3.5/minified/require.js';
+
 const Web3 = require('web3')
 var web3;
  if (typeof web3 !== 'undefined') {
@@ -267,12 +268,28 @@ var web3;
     }
   ];
 
-       var connection = new  web3.eth.contract(abi).at(address);
+ var connection = new  web3.eth.contract(abi).at(address);
        console.log("connection : ", connection);
        console.log(address);
+
+ function connection1(){
+             connection.enter_hospital(function (error, result) {
+            if (!error)
+                console.log(result);
+            else{
+                console.log("connection failed");
+                console.error(error);
+              }
+        });
+          }
+
+
+
+
+  
       // var contract_c = connection.at(address);
 
-       $("#hosp").click(function() {
+    /*  $("#hosp").click(function() {
          connection.enter_hospital(function (error, result) {
             if (!error)
                 console.log(result);
@@ -283,6 +300,9 @@ var web3;
         });
 
         
-});
+});  */
+       
 
+
+     
 
